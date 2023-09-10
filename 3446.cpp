@@ -55,7 +55,8 @@ int main()
 
     cin >> n >> k >> e;
 
-    if (n < 1 || n > 1000) {
+    if (n < 1 || n > 1000)
+    {
         return 0;
     }
 
@@ -63,22 +64,26 @@ int main()
 
     int pecas[n];
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         pecas[i] = i;
     }
 
     pecas[0] = 0;
     pecas[k] = 0;
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         tab[i] = 0;
     }
 
-    if (k < 1 || k > n) {
+    if (k < 1 || k > n)
+    {
         return 0;
     }
 
-    if (e < 0 || e > (n - k)) {
+    if (e < 0 || e > (n - k))
+    {
         return 0;
     }
 
@@ -93,13 +98,20 @@ int main()
     int espBrancoEsq = 0;
     int espBrancoDir = 0;
 
-    for (int i = 0; i < n; i++) {
-        if (i >= e && i < (e + k)) {
+    for (int i = 0; i < n; i++)
+    {
+        if (i >= e && i < (e + k))
+        {
             tab[i] = 1;
-        } else{
-            if (i < e) {
+        }
+        else
+        {
+            if (i < e)
+            {
                 espBrancoEsq++;
-            } else {
+            }
+            else
+            {
                 espBrancoDir++;
             }
         }
@@ -107,38 +119,51 @@ int main()
 
     int espBranco = 0;
 
-    if (pecas[espBrancoEsq] == 1) {
+    if (pecas[espBrancoEsq] != 0)
+    {
         pecas[espBrancoEsq] = 0;
-    } else {
-        for (int i = 0; i < e; i++) {
-            if (pecas[i] != 0) {
-                pecas[i] = 0;
-            } else {
-                espBranco++;
-            }
-        }
+        espBrancoEsq = 0;
     }
-
-    if (pecas[espBrancoDir] != 0) {
+    if (pecas[espBrancoDir] != 0)
+    {
         pecas[espBrancoDir] = 0;
-    } else {
-        for (int i = (e + k); i < n; i++) {
-            if (pecas[i] != 0 && (pecas[i] + e) < n) {
+        espBrancoDir = 0;
+    }
+
+    for (int i = (n - 1); i >= 0; i--)
+    {
+        if (pecas[i] != 0)
+        {
+            if (pecas[i] == espBrancoEsq)
+            {
                 pecas[i] = 0;
-            } else {
-                espBranco++;
+                espBrancoEsq = 0;
+            }
+            else if (pecas[i] == espBrancoDir)
+            {
+                pecas[i] = 0;
+                espBrancoDir = 0;
+            }
+            else if (pecas[i] < espBrancoEsq)
+            {
+                espBrancoEsq = espBrancoEsq - pecas[i];
+                pecas[i] = 0;
+            }
+            else if (pecas[i] < espBrancoDir)
+            {
+                espBrancoDir = espBrancoDir - pecas[i];
+                pecas[i] = 0;
             }
         }
     }
 
-    //cout << espBrancoEsq << endl;
-    //cout << espBrancoDir << endl;
+    espBranco = espBrancoDir + espBrancoEsq;
 
     cout << espBranco << endl;
 
     /*
     0 -> é vazio, tenho peça i
-    
+
     for (int i = 0; i < n; i++) {
         cout << tab[i] << " ";
     }
@@ -148,7 +173,6 @@ int main()
         cout << pecas[i] << " ";
     }
 */
-    
 
     return 0;
 }
