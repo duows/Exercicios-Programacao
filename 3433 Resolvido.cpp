@@ -40,7 +40,7 @@ int main() {
     }
 
 
-    for (int i=1;i<=n;i++) {
+    for (int i=1; i<=n; i++) {
 
         int carta; cin >> carta;
         
@@ -60,30 +60,27 @@ int main() {
     if (M >= J) {
 
         //Maria maior ou igual ao João, nesse caso ela deverá fazer os 23 pontos.
-        if (cartas[23-M] < 4) {
+        int cartaNecessaria = 23-M;
 
-            resp = pontos[23-M];
+        if (cartas[cartaNecessaria] < 4) {
+            
+            if ( (M + pontos[cartaNecessaria]) == 23) {
+                resp = pontos[cartaNecessaria];
+            }
 
         }
 
     } else {
 
         //João maior que Maria, logo ele deverá estourar para que Maria vença
-        for (int i=(24-J); i <= 13; i++) {
+        for (int i= 1; i <= 13; i++) {
 
-            if (cartas[i] < 4) {
+            if (cartas[i] < 4 && (J + pontos[i]) > 23 && (M + pontos[i]) <= 23) {
 
-                if ( (M+pontos[i]) > 23) {
-
-                    resp = -1;
-
-                } else {
-                    resp = pontos[i];
-                }
-
+                resp=i;
                 break;
-
-            }
+                
+            } 
 
         }
 
