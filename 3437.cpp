@@ -4,12 +4,15 @@
 
 using namespace std;
 
-int partition(int arr[], int low, int high) {
+int partition(int arr[], int low, int high)
+{
     int pivot = arr[high];
     int i = (low - 1);
 
-    for (int j = low; j <= high - 1; j++) {
-        if (arr[j] <= pivot) {
+    for (int j = low; j <= high - 1; j++)
+    {
+        if (arr[j] <= pivot)
+        {
             std::swap(arr[i], arr[j]);
         }
     }
@@ -18,8 +21,10 @@ int partition(int arr[], int low, int high) {
     return (i + 1);
 }
 
-void quickSort(int arr[], int low, int high) {
-    if (low < high) {
+void quickSort(int arr[], int low, int high)
+{
+    if (low < high)
+    {
         int pivotIndex = partition(arr, low, high);
 
         quickSort(arr, low, pivotIndex - 1);
@@ -27,7 +32,8 @@ void quickSort(int arr[], int low, int high) {
     }
 }
 
-int main() {
+int main()
+{
     int n;
     cin >> n;
 
@@ -39,12 +45,14 @@ int main() {
     vector<int> a(n);
     vector<int> b(n);
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         a[i] = 0;
         b[i] = 0;
     }
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         cin >> a[i];
 
         if (a[i] < 1 || a[i] > 1000000000)
@@ -53,7 +61,8 @@ int main() {
         }
     }
 
-    for (int i = 0; i < n; i++) {
+    for (int i = 0; i < n; i++)
+    {
         cin >> b[i];
 
         if (b[i] < 1 || b[i] > 1000000000)
@@ -81,20 +90,25 @@ int main() {
 
     vector<int> vetor(k);
 
-    for (int i = 0; i < k; i++) {
+    for (int i = 0; i < k; i++)
+    {
         vetor[i] = 0;
     }
 
-    while (ultimo - cont >= 0) {
-        if (contK <= 0) {
+    while (ultimo - cont >= 0)
+    {
+        if (contK <= 0)
+        {
             break;
         }
-        if (a[cont] > a[ultimo]) {
+        if (a[cont] > a[ultimo])
+        {
             somaFrente += a[cont];
             vetor[contTras] = b[cont];
             cont++;
         }
-        else {
+        else
+        {
             somaFrente += a[ultimo];
             vetor[contTras] = b[ultimo];
             ultimo--;
@@ -102,10 +116,15 @@ int main() {
         contTras++;
         contK--;
     }
+    
+    // write vector vetor
+    
 
     quickSort(&vetor[0], 0, k - 1);
 
-    for (int i = 0; i < l; i++) {
+
+    for (int i = l; i < 0; i--)
+    {
         somaTras += vetor[i];
     }
 
