@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <algorithm>
 
 using namespace std;
 
@@ -25,9 +27,7 @@ void quickSort(int arr[], int low, int high) {
     }
 }
 
-int main()
-{
-
+int main() {
     int n;
     cin >> n;
 
@@ -36,18 +36,15 @@ int main()
         return 0;
     }
 
-    int a[n];
+    vector<int> a(n);
+    vector<int> b(n);
 
-    int b[n];
-
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         a[i] = 0;
         b[i] = 0;
     }
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cin >> a[i];
 
         if (a[i] < 1 || a[i] > 1000000000)
@@ -56,8 +53,7 @@ int main()
         }
     }
 
-    for (int i = 0; i < n; i++)
-    {
+    for (int i = 0; i < n; i++) {
         cin >> b[i];
 
         if (b[i] < 1 || b[i] > 1000000000)
@@ -83,27 +79,22 @@ int main()
     int contK = k;
     int contTras = 0;
 
-    int vetor[k];
+    vector<int> vetor(k);
 
-    for (int i = 0; i < k; i++)
-    {
+    for (int i = 0; i < k; i++) {
         vetor[i] = 0;
     }
 
-
-    while (ultimo - cont >= 0)
-    {
+    while (ultimo - cont >= 0) {
         if (contK <= 0) {
             break;
         }
-        if (a[cont] > a[ultimo])
-        {
+        if (a[cont] > a[ultimo]) {
             somaFrente += a[cont];
             vetor[contTras] = b[cont];
             cont++;
         }
-        else
-        {
+        else {
             somaFrente += a[ultimo];
             vetor[contTras] = b[ultimo];
             ultimo--;
@@ -112,10 +103,9 @@ int main()
         contK--;
     }
 
-    quickSort(vetor, 0, n-1);
+    quickSort(&vetor[0], 0, k - 1);
 
-    for (int i = 0; i < l; i++)
-    {
+    for (int i = 0; i < l; i++) {
         somaTras += vetor[i];
     }
 
