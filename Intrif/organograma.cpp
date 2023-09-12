@@ -2,7 +2,6 @@
 #include <locale.h>
 #include <vector>
 #include <string>
-#include <cctype>
 
 using namespace std;
 
@@ -79,21 +78,6 @@ void imprimirArv(Arv* raiz) {
 	
 	for (Arv* No : raiz->filhos) {
 		imprimirArv(No);
-	}	
-	
-}
-
-void inserirVet(Arv* raiz, vector<string> &vet) {
-	
-	if (raiz == NULL) {
-		return;
-	}
-	
-	
-	vet.push_back(raiz->data);
-	
-	for (Arv* No : raiz->filhos) {
-		inserirVet(No, vet);
 	}	
 	
 }
@@ -180,16 +164,6 @@ int main() {
 	if (NoArv == NULL) {
 		return 0;
 	}
-	
-	//vector<string> vet;
-	
-	//inserirVet(NoArv, vet);
-	
-	//mergeSort(vet, 0, vet.size()-1);
-	
-	/*for (string val : vet) {
-		cout << val << endl;
-	}*/
 	
 	imprimirArv(NoArv);
 	
