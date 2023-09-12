@@ -9,7 +9,7 @@ int main()
     float v;
     cin >> v;
 
-    if (v < 0 || v > pow(10, 38))
+    if (v < 0f || v > pow(10, 38))
     {
         return 0;
     }
@@ -17,20 +17,20 @@ int main()
     float t;
     cin >> t;
 
-    if (t < 0 || t > pow(10, 38))
+    if (t < 0f || t > pow(10, 38))
     {
         return 0;
     }
 
     float q = 0;
 
-    if (v == 0)
+    if (v == 0f)
     {
         cout << "GASOLINA" << endl;
     }
     else
     {
-        if (t == 0)
+        if (t == 0f)
         {
             cout << "ETANOL" << endl;
         }
@@ -38,7 +38,7 @@ int main()
         {
             q = t / v;
 
-            if (q < 0.7)
+            if (q < 0.7f)
             {
                 cout << "ETANOL" << endl;
             }
