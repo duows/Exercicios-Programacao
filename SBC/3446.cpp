@@ -63,7 +63,7 @@ int main()
     int tab[n];
 
     int pecas[n];
-
+    
     for (int i = 0; i < n; i++)
     {
         pecas[i] = i;
