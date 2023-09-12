@@ -121,43 +121,29 @@ int main()
         vetor[i] = 0;
     }
 
-    /*
-    enquanto contK >= 0
-        se a[cont] >= a[ultimo]
-            somaFrente += a[cont]
-            vetorTras[contVetor]
-            cont++
-        fim se
-        senao
-            somaFrente += a[ultimo]
-            vetorTras[contVetor]
-            ultimo--
-        fim senao
-        contVetor++
-        contK--
-    fim enquanto
-    */
-
     while (contK > 0)
     {
-        if (contK <= 0)
+        if (cont > ultimo)
         {
             break;
         }
-        if ((a[cont] + b[cont]) >= (a[ultimo] + b[ultimo]))
-        {
-            somaFrente += a[cont];
-            vetor[contTras] = b[cont];
-            cont++;
-        }
         else
         {
-            somaFrente += a[ultimo];
-            vetor[contTras] = b[ultimo];
-            ultimo--;
+            if ((a[cont] + b[cont]) >= (a[ultimo] + b[ultimo]))
+            {
+                somaFrente += a[cont];
+                vetor[contTras] = b[cont];
+                cont++;
+            }
+            else
+            {
+                somaFrente += a[ultimo];
+                vetor[contTras] = b[ultimo];
+                ultimo--;
+            }
+            contTras++;
+            contK--;
         }
-        contTras++;
-        contK--;
     }
 
     mergeSort(vetor, 0, k - 1);
