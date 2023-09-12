@@ -2,6 +2,7 @@
 #include <locale.h>
 #include <vector>
 #include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -104,13 +105,13 @@ Arv* verificaData(Arv* raiz, string data) {
 		return NULL;
 		
 	}
-	
-	
-	if (raiz->data == data) {
+
+	if ( raiz->data == data) {
+
 		return raiz;
+
 	}
 
-		
 	for ( Arv *No : raiz->filhos ) {
 		
 		Arv* res = verificaData(No, data);
@@ -128,9 +129,8 @@ Arv* verificaData(Arv* raiz, string data) {
 
 
 int main() {
+
 	setlocale(LC_ALL, "Portuguese");
-	
-	
 	
 	Arv* raiz = new Arv;
 	
@@ -144,11 +144,20 @@ int main() {
 		
 		string filho; cin >> filho;
 		string pai; cin >> pai;
+
+        if (filho.length() > 40 || pai.length() > 40) {
+            return 0;
+        }
 		
 		texto = filho + " " + pai;
 		
 		if (texto != "fim entrada") {
 			Arv* NoArv = verificaData(raiz, pai);
+            Arv* NoFilho = verificaData(raiz, filho);
+
+            if (NoFilho != NULL) {
+                return 0;
+            }
 			
 			Arv* NoNovo = new Arv;
 			NoNovo->data = filho;
@@ -163,8 +172,6 @@ int main() {
 			mergeSort(NoArv->filhos, 0, NoArv->filhos.size()-1);
 		}
 	}
-	
-	
 	
 	cin >> texto;
 	
