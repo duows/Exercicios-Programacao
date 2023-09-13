@@ -126,8 +126,10 @@ int main() {
 	
 	while (texto != "fim entrada") {
 		
-		string filho; cin >> filho;
-		string pai; cin >> pai;
+		string filho;
+		string pai;
+
+		cin >> filho >> pai;
 
         if (filho.length() > 40 || pai.length() > 40) {
             return 0;
