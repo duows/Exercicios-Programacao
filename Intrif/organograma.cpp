@@ -127,9 +127,15 @@ int main() {
 	while (texto != "fim entrada") {
 		
 		string filho;
+<<<<<<< HEAD
 		string pai;
 
 		cin >> filho >> pai;
+=======
+		string pai; 
+        
+        cin >> filho >> pai;
+>>>>>>> bff161a0bc0b36f7706da8a1b6d73f710af52772
 
         if (filho.length() > 40 || pai.length() > 40) {
             return 0;
@@ -138,20 +144,17 @@ int main() {
 		texto = filho + " " + pai;
 		
 		if (texto != "fim entrada") {
+
 			Arv* NoArv = verificaData(raiz, pai);
             Arv* NoFilho = verificaData(raiz, filho);
 
-            if (NoFilho != NULL) {
+            if (NoFilho != NULL || NoArv == NULL) {
                 return 0;
             }
-			
+
+
 			Arv* NoNovo = new Arv;
 			NoNovo->data = filho;
-			
-			
-			if (NoArv == NULL) {
-				return 0;
-			}
 			
 			NoArv->filhos.push_back(NoNovo);
 			
