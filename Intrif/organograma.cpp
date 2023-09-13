@@ -33,7 +33,7 @@ void merge(vector<Arv*> &arr, int left, int middle, int right)
 
     while (i < n1 && j < n2)
     {
-        if (leftArr[i]->data.compare(rightArr[j]->data) <= 0)
+        if (leftArr[i]->data <= rightArr[j]->data)
         {
             arr[k++] = leftArr[i++];
         }
@@ -78,6 +78,8 @@ void imprimirArv(Arv* raiz) {
 	for (Arv* No : raiz->filhos) {
 		imprimirArv(No);
 	}
+
+    
 }
 
 void ordenarArv(Arv* raiz) {
@@ -143,8 +145,9 @@ int main() {
 	raiz->data = raizData;
 	
 	string texto;
+    string textoAux;
 	
-	while (texto != "fim entrada") {
+	while (textoAux != "fim entrada") {
 		
 		string filho;
 		string pai; 
@@ -156,8 +159,14 @@ int main() {
         }
 		
 		texto = filho + " " + pai;
+
+        
+
+        for (char c : texto) {
+            textoAux += tolower(c);
+        }
 		
-		if (texto != "fim entrada") {
+		if (textoAux != "fim entrada") {
 
 			Arv* NoArv = verificaData(raiz, pai);
             Arv* NoFilho = verificaData(raiz, filho);
@@ -171,8 +180,14 @@ int main() {
 			NoNovo->data = filho;
 			
 			NoArv->filhos.push_back(NoNovo);
-            
+			
+			mergeSort(NoArv->filhos, 0, NoArv->filhos.size()-1);
+			
+			
+		    textoAux="";
+
 		}
+		
 	}
 	
 	cin >> texto;
@@ -181,7 +196,8 @@ int main() {
 
 	if (NoArv == NULL) {
 		return 0;
-	}   
+	}
+	
 	
 	imprimirArv(NoArv);
     cout << "";
