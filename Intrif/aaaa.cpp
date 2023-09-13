@@ -36,6 +36,16 @@ int main()
         }
     }
 
+    
+    cout << endl;
+    // write vetor mensagem
+    for (int i = 0; i < mensagem.size()-1; i++) {
+        cout << mensagem[i] << " ";
+    }
+    
+
+
+
     for (int letra : mensagem)
     {
         if (letra != 0)
@@ -43,7 +53,7 @@ int main()
             cout << static_cast<char>(letra);
         }
     }
-    cout << "" << endl;
+    cout << endl;
 
     return 0;
 }

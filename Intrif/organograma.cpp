@@ -184,6 +184,7 @@ int main() {
 	}   
 	
 	imprimirArv(NoArv);
+    cout << "";
 	
 	
 	return 0;
