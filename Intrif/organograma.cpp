@@ -1,5 +1,4 @@
 #include <iostream>
-#include <locale.h>
 #include <vector>
 #include <string>
 
@@ -34,7 +33,7 @@ void merge(vector<Arv*> &arr, int left, int middle, int right)
 
     while (i < n1 && j < n2)
     {
-        if (leftArr[i]->data <= rightArr[j]->data)
+        if (leftArr[i]->data.compare(rightArr[j]->data) <= 0)
         {
             arr[k++] = leftArr[i++];
         }
@@ -78,8 +77,20 @@ void imprimirArv(Arv* raiz) {
 	
 	for (Arv* No : raiz->filhos) {
 		imprimirArv(No);
-	}	
+	}
+}
+
+void ordenarArv(Arv* raiz) {
 	
+	if (raiz == NULL) {
+		return;
+	}
+
+    mergeSort(raiz->filhos, 0, raiz->filhos.size()-1);
+	
+	for (Arv* No : raiz->filhos) {
+		imprimirArv(No);
+	}
 }
 
 Arv* verificaData(Arv* raiz, string data) {
@@ -90,7 +101,18 @@ Arv* verificaData(Arv* raiz, string data) {
 		
 	}
 
-	if ( raiz->data == data) {
+    string aux1;
+    string aux2;
+
+    for (char c : raiz->data) {
+        aux1 += tolower(c);
+    }
+    
+    for (char c : data) {
+        aux2 += tolower(c);
+    }
+
+	if ( aux1 == aux2) {
 
 		return raiz;
 
@@ -114,8 +136,6 @@ Arv* verificaData(Arv* raiz, string data) {
 
 int main() {
 
-	setlocale(LC_ALL, "Portuguese");
-	
 	Arv* raiz = new Arv;
 	
 	string raizData; cin >> raizData;
@@ -127,15 +147,9 @@ int main() {
 	while (texto != "fim entrada") {
 		
 		string filho;
-<<<<<<< HEAD
-		string pai;
-
-		cin >> filho >> pai;
-=======
 		string pai; 
         
         cin >> filho >> pai;
->>>>>>> bff161a0bc0b36f7706da8a1b6d73f710af52772
 
         if (filho.length() > 40 || pai.length() > 40) {
             return 0;
@@ -157,8 +171,7 @@ int main() {
 			NoNovo->data = filho;
 			
 			NoArv->filhos.push_back(NoNovo);
-			
-			mergeSort(NoArv->filhos, 0, NoArv->filhos.size()-1);
+            
 		}
 	}
 	
@@ -168,7 +181,7 @@ int main() {
 
 	if (NoArv == NULL) {
 		return 0;
-	}
+	}   
 	
 	imprimirArv(NoArv);
 	
