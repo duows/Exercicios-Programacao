@@ -1,4 +1,5 @@
 from decimal import Decimal, getcontext
+import math
 
 # Definir a precisão decimal desejada (12 casas decimais)
 getcontext().prec = 14  # Ajuste para 14 para garantir 12 casas decimais após a vírgula
@@ -28,6 +29,3 @@ a2 = (theta * PI * (r**2)) / Decimal('360.0')
 
 areaTotal = a1 + a2
 
-areaTotalRound = round(areaTotal, 12)
-
-print(areaTotalRound)
