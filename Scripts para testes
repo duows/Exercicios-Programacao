@@ -1,0 +1,7 @@
+SCRIPTS C++ (WINDOWS)
+
+COMPILAR: g++ program.cpp -o 'program.exe'
+EXECUTAR COM INPUT: cat input.txt | ./jujubas.exe
+
+EXECUTAR COM INPUT E CRIAR UM ARQUIVO DE SAÍDA: program.exe < input.txt > saida.out
+ABRIR O ARQUIVO DE SAÍDA: type saida.out
