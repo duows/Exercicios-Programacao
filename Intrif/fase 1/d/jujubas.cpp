@@ -86,8 +86,7 @@ int main() {
 
 
     for (float res : resultados) {
-        printf("%.2f", res);
-        cout << endl;
+        printf("%.2f\n", res);
     }
 
 
