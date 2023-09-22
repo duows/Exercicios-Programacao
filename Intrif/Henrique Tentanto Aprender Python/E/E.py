@@ -1,14 +1,19 @@
+from math import trunc
+
 n = int(input())
 notas = []
 
 for i in range(n):
-    notas.append((input()))
+    f = int(input())
+    notas.append(f)
 
-notas = sorted(notas, reverse=True)
+notas.sort(reverse=True)
 
-v = input()
+v = int(input())
 qntd = 0
 
+for i in range(len(notas)):
+    qntd += v // notas[i]
+    v %= notas[i]
 
-
-
+print(qntd)
