@@ -7,6 +7,7 @@ using namespace std;
 
 string removeDuplicateLetters(string s) {
     unordered_map<char, int> last_occurrence;
+    
     for (int i = 0; i < s.length(); i++) {
         last_occurrence[s[i]] = i;
     }
