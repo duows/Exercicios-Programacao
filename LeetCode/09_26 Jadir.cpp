@@ -23,6 +23,7 @@ int main(){
     for (char c : s) {
 
         if (visited.find(c) != visited.end()) {
+            cont++;
             continue;
         }
 
