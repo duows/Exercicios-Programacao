@@ -8,9 +8,9 @@ def findMedianSortedArrays(self, nums1, nums2):
     if total % 2 == 1:
             return float(merged[total // 2])
     else:
-        middle1 = merged[total // 2 - 1]
-        middle2 = merged[total // 2]
-        return (float(middle1) + float(middle2)) / 2.0
+        meio1 = merged[total // 2 - 1]
+        meio2 = merged[total // 2]
+        return (float(meio1) + float(meio2)) / 2.0
     
 nums1 = [1, 2]
 nums2 = [3, 4]
