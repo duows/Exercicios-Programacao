@@ -1,13 +1,20 @@
-class Solution:
-    def removeDuplicateLetters(self, s: str) -> str:
-        sLower = s.lower()
-        sNoRepetition = ""
+def removeDuplicateLetters(s):
+    last_occurrence = {char: idx for idx, char in enumerate(s)}
+    stack = []
+    visitado = set()
+    
+    for idx, char in enumerate(s):
+        if char in visitado:
+            continue
         
-        for i in sLower:
-            if i not in sNoRepetition:
-                sNoRepetition += i
-
+        while stack and char < stack[-1] and idx < last_occurrence[stack[-1]]:
+            visitado.remove(stack.pop())
         
+        stack.append(char)
+        visitado.add(char)
+    
+    return ''.join(stack)
 
-        return sSaida
-
+s = input()
+result = removeDuplicateLetters(s)
+print(result)
