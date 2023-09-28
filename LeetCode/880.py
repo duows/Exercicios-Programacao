@@ -1,17 +1,24 @@
 s = "leet2code3"
 k = 10
 
-cont1 = 0
+tamanhoString = 0
+cont = 0
 s2 = ""
 
-if k == 1:
-    print(s[0]) 
-else:
-    while cont1 < len(s):
-        if s[cont1].isnumeric():
-            s2 = s2 * int(s[cont1])
-        else:
-            s2 += s[cont1]
-        cont1 += 1
-    
-print(s2[k-1])
+while tamanhoString < k:
+    if s[cont].isnumeric():
+        tamanhoString *= int(s[cont])
+    else:
+        tamanhoString += 1
+    cont += 1
+
+for cont in range(cont-1, -1, -1):
+    c = s[cont]
+    if c.isdigit():
+        tamanhoString //= int(c)
+        k %= tamanhoString
+    else:
+        if k == 0 or k == tamanhoString:
+            print(c)
+            break
+        tamanhoString -= 1
