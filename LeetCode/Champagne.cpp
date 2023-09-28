@@ -35,6 +35,10 @@ int main() {
 
         linhaAtual = prox;
     }
+    
+    if (linhaAtual[query_glass] > 1) {
+	linhaAtual[query_glass] = 1;
+    }
 
 
     cout << linhaAtual[query_glass] << endl;
