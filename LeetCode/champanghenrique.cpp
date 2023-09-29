@@ -6,7 +6,7 @@ using namespace std;
 int main() {
 	
 	
-	long long int poured = 100000009;
+	int poured = 100000009;
 	
     vector<double> linhaAtual(1, poured);
 
@@ -25,18 +25,8 @@ int main() {
             //Percorrendo a linha atual
             if (linhaAtual[j] >= 1) {
 
-                prox[j] = (linhaAtual[j]-1.0)/2.0;
-                //cout << prox[j] << endl;
-                if (prox[j] < 0) {
-                    //cout << prox[j] << endl;
-                    prox[j] = 0;
-                }
+                prox[j]  = (linhaAtual[j]-1.0)/2.0;
                 prox[j+1] = (linhaAtual[j]-1.0)/2.0;
-                //cout << prox[j+1] << endl;
-                if (prox[j+1] < 0) {
-                    //cout << prox[j+1] << endl;
-                    prox[j+1] = 0;
-                }
                 linhaAtual[j] = 1;
             } 
 
