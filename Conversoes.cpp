@@ -34,6 +34,11 @@ int main()
     
     val2 += 1000000000000;
     
+
+    string a = "";
+
+    unsigned long long N = stoull(a); // Convertendo string para unsigned long long
+
     cout << teste4 << endl;
     
     cout << val2 << endl;
