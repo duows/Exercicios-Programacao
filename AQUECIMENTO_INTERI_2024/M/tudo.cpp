@@ -14,6 +14,7 @@ int main() {
 
     vector<vector<int>> fluxos(N, vector<int>(L, 0));
 
+
     // Lê os valores e separa nos respectivos vetores de fluxo
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < L; j++) {

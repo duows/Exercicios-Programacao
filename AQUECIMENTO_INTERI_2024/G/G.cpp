@@ -13,7 +13,7 @@ int main() {
         if (isdigit(c)) {
             int digit = c - '0';
 
-            if (digit % 2 == 0) {
+            if (!(digit & 1)) {
                 sumEven += digit;
             } else {
                 sumOdd += digit;
