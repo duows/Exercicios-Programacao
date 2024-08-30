@@ -17,6 +17,15 @@ using namespace std;
 #define dgb(x) cout << #x << " = " << x << endl;
 */
 
+/* define long long como ll
+typedef long long ll
+*/
+
+/* define constantes infinitas
+const int INF = 0x3f3f3f3f;
+const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+*/
+
 int main() { _
 
 	return 0;
