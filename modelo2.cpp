@@ -39,7 +39,8 @@ compilar
 g++ -std=c++17 -o meu_novo_codigo ~/projetos/meu_novo_codigo.cpp
 ./meu_novo_codigo
 
-
+criar pastas
+for i in {A..Z}; do mkdir "$i"; done
 
 */
 
