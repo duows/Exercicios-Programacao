@@ -14,23 +14,23 @@ using namespace std;
 #define vi vector<int>
 
 /* macro para printar */
-#define printv(a)                           \
-    for (size_t i = 0; i < a.size(); ++i) {\
-        cout << a[i];                 \
-        if (i < a.size() - 1)              \
-            cout << " ";              \
-    }                                      \
+#define printv(a)                           
+    for (size_t i = 0; i < a.size(); ++i) {
+        cout << a[i];                
+        if (i < a.size() - 1)              
+            cout << " ";              
+    }                                      
     cout << endl;
 
 #define printv2(a) for(auto x : a) cout << x << endl
 
-#define print_matrix(m, l, c) { \
-    for (int i = 0; i < l; ++i) { \
-        for (int j = 0; j < c; ++j) { \
-            cout << m[i][j] << " "; \
+#define print_matrix(m, l, c) { 
+    for (int i = 0; i < l; ++i) { 
+        for (int j = 0; j < c; ++j) { 
+            cout << m[i][j] << " "; 
         } \
-        cout << endl; \
-    } \
+        cout << endl; 
+    } 
 }
 
 /* macro para trabalhar com pair*/
