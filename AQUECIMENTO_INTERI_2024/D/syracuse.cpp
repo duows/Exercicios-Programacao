@@ -1,3 +1,7 @@
+
+
+// Problema de Syracuse
+
 #include <iostream>
 #include <vector>
 

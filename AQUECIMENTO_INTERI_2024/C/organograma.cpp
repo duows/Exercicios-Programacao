@@ -1,3 +1,6 @@
+
+// Programa para imprimir a hierarquia de um setor utilizando árvore
+
 #include <iostream>
 #include <string>
 

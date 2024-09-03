@@ -1,3 +1,6 @@
+
+// Exercício Pega Varetas
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

@@ -1,3 +1,7 @@
+
+// Algoritmo de Kruskal para encontrar a árvore geradora mínima de um grafo
+
+
 #include <iostream>
 #include <vector>
 #include <algorithm>

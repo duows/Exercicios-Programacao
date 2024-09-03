@@ -1,3 +1,5 @@
+
+// Algoritmo de Dijkstra para encontrar o menor caminho entre dois vértices em um grafo
 #include <iostream>
 #include <vector>
 #include <queue>
