@@ -2,99 +2,69 @@
 
 using namespace std;
 
-/*macro para código mais rapido e para \n*/
-#define _ ios_base::sync_with_stdio(0);cin.tie(0); //n usar printf junto com cout
-//^comentar _ para degubar código
+/*macro para cÃ³digo mais rÃ¡pido*/
+#define _ ios_base::sync_with_stdio(0);cin.tie(0); 
 #define endl '\n'
 
-
-/* macro aleatorias */
-#define pb push_back
-#define pii pair<int, int>
-#define vi vector<int>
-
-#define printv(a) do {                             \
-    for (size_t i = 0; i < (a).size(); ++i) {      \
-        cout << (a)[i];                            \
-        if (i < (a).size() - 1)                    \
-            cout << " ";                           \
-    }                                              \
-    cout << endl;                                  \
-} while(0)
-
-#define printv2(a) do {                            \
-    for (auto x : (a))                             \
-        cout << x << endl;                         \
-} while(0)
-
-#define print_matrix(m, l, c) do {                 \
-    for (int i = 0; i < (l); ++i) {                \
-        for (int j = 0; j < (c); ++j) {            \
-            cout << (m)[i][j] << " ";              \
-        }                                          \
-        cout << endl;                              \
-    }                                              \
-} while(0)
-
-
-/* macro para trabalhar com pair*/
-#define f first
-#define s second
-
-/* funcao para debugging*/
-#define dgb(x) cout << #x << " = " << x << endl;
-
-/* define long long como ll */
-typedef long long ll;
-
+#define int long long
 
 /* define constantes infinitas */
-//const int INF = 0x3f3f3f3f;
-//const ll LINF = 0x3f3f3f3f3f3f3f3fll;
+typedef long long ll;
 
 int charToInt(char c) {
-	int num = c - '0';
-	return num;
+    return c - '0';
 }
 
+int32_t main() { _
+    
+    int n; 
+    cin >> n;
+    
+    vector<string> res;
+    
+    for (int i = 0; i < n; i++) {
+        string doc; 
+        cin >> doc;
+        // NNN.NNN-D
+        if (doc.size() != 9 || doc[3] != '.' || doc[7] != '-' ) {
+            res.push_back("CDN INVALIDO!");
+            continue;
+        }
 
-int main() { _
-	
-	int n; cin >> n;
-	
-	vector<string> res;
-	
-	for (int i = 0; i < n; i++) {
-		string doc; cin >> doc;
-		int a=0, b=0, c=0, d=0, e=0, f=0, g=0, g_or=0;
-		
-		a = 20 * charToInt(doc[0]);
-		b = 19 * charToInt(doc[1]);
-		c = 17 * charToInt(doc[2]);
-		d = 14 * charToInt(doc[4]);
-		e = 10 * charToInt(doc[5]);
-		f = 5  * charToInt(doc[6]);
-		g_or = charToInt(doc[8]);
-		
-		if ((a == b && b == c && c == d && d == e && e == f && f == g) || doc.size() > 9 || doc.size() < 9)  {
-			res.pb("CDN INVALIDO! ");
-		} else {
-			int sum = a + b + c + d + e + f;
-			if ((sum % 11 == 0) || (sum % 11 == 1)) {
-				g = 0;
-			} else {
-				g = 11 - (sum % 11);
-			}
-	
-			if (g == charToInt(doc[8])) {
-				res.pb("CDN VALIDO!");
-			} else {
-				res.pb("CDN INVALIDO! ");
-			}
-		}	
-	}
-	
-	printv2(res);
+        int a = charToInt(doc[0]);
+        int b = charToInt(doc[1]);
+        int c = charToInt(doc[2]);
+        int d = charToInt(doc[4]);
+        int e = charToInt(doc[5]);
+        int f = charToInt(doc[6]);
+        int g_or = charToInt(doc[8]);
+        
+        if (a == b && b == c && c == d && d == e && e == f) {
+            res.push_back("CDN INVALIDO!");
+            continue;
+        }
 
-	return 0;
+        int sum = 20 * a + 19 * b + 17 * c + 14 * d + 10 * e + 5 * f;
+        int resto = sum % 11;
+        int g=0;
+
+        if (resto == 0 || resto == 1) {
+            g = 0;
+        } else {
+        	if (resto == 2 || resto == 3 || resto == 4 || resto == 5 || resto == 6 || resto == 7 || resto == 8 || resto == 9 || resto == 10) g = 11 - resto;
+        	else g = -1;
+        }
+
+        if (g == g_or && g != -1) {
+            res.push_back("CDN VALIDO!");
+        } else {
+            res.push_back("CDN INVALIDO!");
+        }
+    }
+    
+    for (const string& resultado : res) {
+        cout << resultado << endl;
+    }
+
+    return 0;
 }
