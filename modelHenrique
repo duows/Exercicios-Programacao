@@ -59,7 +59,7 @@ g++ -std=c++17 -o meu_novo_codigo ~/projetos/meu_novo_codigo.cpp
 ./meu_novo_codigo
 
 criar pastas
-for i in {A..Z}; do mkdir "$i"; done
+for i in {A..Z}; do mkdir -p "$i"; cp ~/templates/template.cpp "$i/$i.cpp"; done
 */
 
 int main() { _
