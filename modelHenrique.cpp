@@ -47,11 +47,20 @@ using namespace std;
 /* define long long como ll */
 typedef long long ll;
 
-
 /* define constantes infinitas */
 //const int INF = 0x3f3f3f3f;
 //const ll LINF = 0x3f3f3f3f3f3f3f3fll;
 
+/* criar arquivo baseado no template
+cp ~/templates/template.cpp ~/projetos/meu_novo_codigo.cpp
+
+compilar
+g++ -std=c++17 -o meu_novo_codigo ~/projetos/meu_novo_codigo.cpp
+./meu_novo_codigo
+
+criar pastas
+for i in {A..Z}; do mkdir -p "$i"; cp ~/templates/template.cpp "$i/$i.cpp"; done
+*/
 
 int main() { _
 
