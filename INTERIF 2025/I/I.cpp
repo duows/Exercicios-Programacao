@@ -54,8 +54,59 @@ typedef long long ll;
 
 
 int main() { _
+    while (true) {
+        int n; cin >> n;
+        if (n == 0) break;
 
-	
+        string s, c;
+        cin >> s >> c;
 
-	return 0;
+        if (s.length() != c.length()) continue;
+
+        bool ignorar = false;
+        for (char x : s) {
+            if (!islower(x)) {
+                ignorar = true;
+                break;
+            }
+        }
+        for (char x : c) {
+            if (!islower(x)) {
+                ignorar = true;
+                break;
+            }
+        }
+
+        if (ignorar) continue;
+
+        string ans = "";
+        bool horario = true;
+
+        for (int i = 0; i < s.length(); i++) {
+            int letra = s[i] - 'a';
+            int deslocamento = (c[i] - 'a') + 1;
+            int nova_pos;
+
+            if (n == 1) { // Criptografar
+                if (horario) {
+                    nova_pos = (letra + deslocamento) % 26;
+                } else {
+                    nova_pos = (letra - deslocamento + 26) % 26;
+                }
+            } else if (n == 2) { // Descriptografar
+                if (horario) {
+                    nova_pos = (letra - deslocamento + 26) % 26;
+                } else {
+                    nova_pos = (letra + deslocamento) % 26;
+                }
+            }
+
+            ans += (char)(nova_pos + 'a');
+            horario = !horario;
+        }
+
+        cout << ans << endl;
+    }
+
+    return 0;
 }
