@@ -62,28 +62,40 @@ criar pastas
 for i in {A..Z}; do mkdir -p "$i"; cp ~/templates/template.cpp "$i/$i.cpp"; done
 */
 
+int N, M;
+vector<vector<int>> adj;
+vector<bool> visitado;
+
+void dfs(int v) {
+    visitado[v] = true;
+    for(int vizinho : adj[v]) {
+        if(!visitado[vizinho]) {
+            dfs(vizinho);
+        }
+    }
+}
+
 int main() { _
 
-	int n, m; cin >> n >> m;
+    cin >> N >> M;
+    adj.resize(N + 1);
+    visitado.resize(N + 1, false);
 
-    /*
-    
-    1 -> 2 4
-    2 -> 1 5
-    4 -> 1
-    5 -> 2
-    
-    1 -> 6
-    2 -> 5 3 7
-    3 -> 7 2
-    4 -> 6
-    5 -> 2
-    6 -> 1 4
-    7 -> 3 2
+    for(int i = 0; i < M; ++i) {
+        int u, v; cin >> u >> v;
+        adj[u].pb(v);
+        adj[v].pb(u);
+    }
 
-    1 -> 5 2 3 7
-    2 -> 4 1 6
-    */
+    int total = 0;
+    for (int i = 1; i <= N; i++) {
+        if (!visitado[i]) {
+            dfs(i);
+            total++;
+        }
+    }
+
+    cout << total << endl;
 
 	return 0;
 }
