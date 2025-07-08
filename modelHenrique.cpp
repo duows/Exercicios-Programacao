@@ -62,6 +62,9 @@ criar pastas
 for i in {A..Z}; do mkdir -p "$i"; cp ~/templates/template.cpp "$i/$i.cpp"; done
 */
 
+// modelHenrique="/mnt/d/Faculdade/Exercicios-Programacao/modelHenrique.cpp"; for i in {A..J}; do mkdir -p "$i"; cp "$modelHenrique" "$i/$i.cpp"; done
+
+
 int main() { _
 
 	

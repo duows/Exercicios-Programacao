@@ -7,7 +7,6 @@ using namespace std;
 //^comentar _ para degubar código
 #define endl '\n'
 
-
 /* macro aleatorias */
 #define pb push_back
 #define pii pair<int, int>
@@ -54,8 +53,26 @@ typedef long long ll;
 
 
 int main() { _
+    int N;
+    cin >> N;
 
-	
+    vector<int> energia(N+1);
 
-	return 0;
+    energia[1] = 2;
+    energia[2] = 3;
+
+    for (int i = 3; i <= N; i++) {
+        int menor = INT_MAX;
+        for (int j = 1; j < i; j++) {
+            int atual = energia[j] * energia[i - j];
+            if (atual < menor) {
+                menor = atual;
+            }
+        }
+        energia[i] = menor;
+    }
+
+    cout << energia[N] << endl;
+
+    return 0;
 }
