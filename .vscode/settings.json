@@ -61,7 +61,9 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "span": "cpp",
-        "unordered_map": "cpp"
+        "unordered_map": "cpp",
+        "codecvt": "cpp",
+        "functional": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
