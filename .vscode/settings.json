@@ -1,5 +1,6 @@
 {
     "files.associations": {
+        "*.py": "python",
         "iostream": "cpp",
         "ostream": "cpp",
         "algorithm": "cpp",
@@ -63,7 +64,13 @@
         "span": "cpp",
         "unordered_map": "cpp",
         "codecvt": "cpp",
-        "functional": "cpp"
+        "functional": "cpp",
+        "array": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "ranges": "cpp",
+        "xhash": "cpp",
+        "xtree": "cpp"
     },
     "C_Cpp.errorSquiggles": "disabled"
 }
